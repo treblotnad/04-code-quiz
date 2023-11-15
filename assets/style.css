@@ -7,11 +7,54 @@ main {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 25%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+header a, header h2{
+    font-size: 1rem;
+    padding:1rem;
+    margin:0;
+    border:0;
+    height:fit-content;
+    width: fit-content;
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+main p {
+    font-size: 1rem;
 }
 
 .btn{
     background-color: purple;
     color: white;
     width: fit-content;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+button:hover{
+    background-color: orange;
+}
+
+a:hover{
+    color: gray;
+}
+
+@media (min-width: 700px){
+    h1{font-size: 3rem;}
+    main p {font-size:2rem;}
+    .btn{font-size:2rem;}
+    header a,header h2{font-size:2rem;}
+}
+
+@media (min-width: 1500px){
+    h1{font-size: 4rem;}
+    main p {font-size:3rem;}
+    .btn{font-size:3rem;}
+    header a,header h2{font-size:3rem;}
 }
