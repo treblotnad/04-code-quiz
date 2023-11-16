@@ -5,8 +5,9 @@ var mainP = document.querySelector('#mainP');
 var main = document.querySelector('#main');
 var timeAmt = 75;
 var questionNum = 0;
-var questions = ["Commonly used data types DO NOT include:"];
-var answers = [["1. strings","2. booleans","3. alerts","4. numbers"]];
+var questions = ["Commonly used data types DO NOT include:","The condition in an if/else statement is enclosed within ____."];
+var answers = [["1. strings","2. booleans","3. alerts","4. numbers"],["1. quotes","2. curly brackets","3. parentheses","4. square brackets"]];
+var answerKey=[2,1]
 var answer1 = document.createElement("button");
 var answer2 = document.createElement("button");
 var answer3 = document.createElement("button");
@@ -21,26 +22,25 @@ answer3.setAttribute("id", "btn3");
 answer4.setAttribute("id", "btn4");
 answer1.setAttribute("status", "incorrect");
 answer2.setAttribute("status", "incorrect");
-answer3.setAttribute("status", "correct");
+answer3.setAttribute("status", "incorrect");
 answer4.setAttribute("status", "incorrect");
 
-
+var score = 0;
 var answerBox = [answer1, answer2, answer3, answer4];
 
 
 
 startButton.addEventListener('click',function(){
-    mainTitle.textContent='Working?';
-    countdown(timeAmt);
+    countdown();
     startButton.setAttribute("style","display: none");
     mainP.textContent="";
     main.setAttribute("style","align-items: start");
-    quizStart();
+    quizStart(answerKey[questionNum]);
 
 }
 )
 
-function countdown(timeAmt){
+function countdown(){
     timerEl.textContent = 'Time Remaining: ' + timeAmt;
     var timeInterval = setInterval(function(){
         timeAmt--;
@@ -50,38 +50,52 @@ function countdown(timeAmt){
             timerEl.textContent = 'Game Over!'
             clearInterval(timeInterval);
             mainTitle.textContent ="";
-            answerBox[0]=setAttribute("style","display:none");
-            answerBox[1]=setAttribute("style","display:none");
-            answerBox[2]=setAttribute("style","display:none");
-            answerBox[3]=setAttribute("style","display:none");
+            answerBox[0].setAttribute("style","display:none");
+            answerBox[1].setAttribute("style","display:none");
+            answerBox[2].setAttribute("style","display:none");
+            answerBox[3].setAttribute("style","display:none");
         }
     },1000)
 }
 
 
-function quizStart(){
+function quizStart(correctQuestionNum){
     mainTitle.textContent = questions[questionNum]; 
-    console.log(answerBox);
     for (let i=0;i<answerBox.length;i++){
         answerBox[i].textContent = answers[questionNum][i];
         main.appendChild(answerBox[i]);
     }
+    answerBox[correctQuestionNum].setAttribute("status", "correct");
 }
+function quizUpdate(correctQuestionNum){
+    mainTitle.textContent = questions[questionNum]; 
+    for (let i=0;i<answerBox.length;i++){
+        answerBox[i].textContent = answers[questionNum][i];
+    }
+    answerBox[correctQuestionNum].setAttribute("status", "correct");
+}
+
+
+
 
 main.addEventListener('click',function(event){
     var e = event.target;
-    var clickTime = timeAmt;
-    var correctBox = e.getAttribute("status");
-    if (correctBox== 'correct'){
-        console.log("correct");
+    if(e.getAttribute("class")=="btn" && e.getAttribute("id"!="start")){
+        var clickTime = timeAmt;
+        var clickedBoxStatus = e.getAttribute("status");
+        if (clickedBoxStatus == 'incorrect'){
+            timeAmt = clickTime - 10 ;
+        }
+        if (questionNum<questions.length){
+        questionNum++;
+        quizUpdate(answerKey[questionNum]);
     } else {
-        console.log("incorrect");
-        timeAmt = clickTime - 10 ;
-        console.log(timeAmt);
-        
+        score = clickTime;
+        console.log(score)
     }
-    questionNum++;
-    //quizStart();
-}
+
+        console.log(clickedBoxStatus)
+    }
+    }
 )
 
