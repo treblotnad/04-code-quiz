@@ -15,6 +15,16 @@ answer1.setAttribute("class", "btn");
 answer2.setAttribute("class", "btn");
 answer3.setAttribute("class", "btn");
 answer4.setAttribute("class", "btn");
+answer1.setAttribute("id", "btn1");
+answer2.setAttribute("id", "btn2");
+answer3.setAttribute("id", "btn3");
+answer4.setAttribute("id", "btn4");
+answer1.setAttribute("status", "incorrect");
+answer2.setAttribute("status", "incorrect");
+answer3.setAttribute("status", "correct");
+answer4.setAttribute("status", "incorrect");
+
+
 var answerBox = [answer1, answer2, answer3, answer4];
 
 
@@ -24,6 +34,7 @@ startButton.addEventListener('click',function(){
     countdown(timeAmt);
     startButton.setAttribute("style","display: none");
     mainP.textContent="";
+    main.setAttribute("style","align-items: start");
     quizStart();
 
 }
@@ -49,7 +60,6 @@ function countdown(timeAmt){
 
 
 function quizStart(){
-    main.setAttribute("style","align-items: start");
     mainTitle.textContent = questions[questionNum]; 
     console.log(answerBox);
     for (let i=0;i<answerBox.length;i++){
@@ -57,3 +67,21 @@ function quizStart(){
         main.appendChild(answerBox[i]);
     }
 }
+
+main.addEventListener('click',function(event){
+    var e = event.target;
+    var clickTime = timeAmt;
+    var correctBox = e.getAttribute("status");
+    if (correctBox== 'correct'){
+        console.log("correct");
+    } else {
+        console.log("incorrect");
+        timeAmt = clickTime - 10 ;
+        console.log(timeAmt);
+        
+    }
+    questionNum++;
+    //quizStart();
+}
+)
+
