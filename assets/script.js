@@ -96,7 +96,7 @@ main.addEventListener('click', function(event){
         console.log(score)
         }
 
-        console.log(clickedBoxStatus)
+        mainP.textContent = ""
     }
     }
 )
