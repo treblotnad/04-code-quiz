@@ -34,10 +34,12 @@ main p {
 .btn {
   background-color: purple;
   color: white;
-  width: fit-content;
+  width: 35rem;
   font-size: 1rem;
   border-radius: 10px;
   margin: 0.5rem;
+  padding-left: 1rem;
+  text-align:start;
 }
 
 #start {
@@ -47,6 +49,8 @@ main p {
   font-size: 1rem;
   border-radius: 10px;
   margin: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 button:hover {
