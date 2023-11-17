@@ -30,7 +30,8 @@ var answerBox = [answer1, answer2, answer3, answer4];
 
 
 
-startButton.addEventListener('click',function(){
+startButton.addEventListener('click',function(event){
+    event.preventDefault();
     countdown();
     startButton.setAttribute("style","display: none");
     mainP.textContent="";
@@ -46,7 +47,7 @@ function countdown(){
         timeAmt--;
         timerEl.textContent = 'Time Remaining: ' + timeAmt;
 
-        if(timeAmt===0){
+        if(timeAmt<=0){
             timerEl.textContent = 'Game Over!'
             clearInterval(timeInterval);
             mainTitle.textContent ="";
@@ -78,21 +79,22 @@ function quizUpdate(correctQuestionNum){
 
 
 
-main.addEventListener('click',function(event){
+main.addEventListener('click', function(event){
+    event.preventDefault();
     var e = event.target;
-    if(e.getAttribute("class")=="btn" && e.getAttribute("id"!="start")){
+    if((e.getAttribute("class")=="btn" )){
         var clickTime = timeAmt;
         var clickedBoxStatus = e.getAttribute("status");
         if (clickedBoxStatus == 'incorrect'){
             timeAmt = clickTime - 10 ;
         }
-        if (questionNum<questions.length){
+        if (questionNum<questions.length-1){
         questionNum++;
         quizUpdate(answerKey[questionNum]);
-    } else {
+        } else {
         score = clickTime;
         console.log(score)
-    }
+        }
 
         console.log(clickedBoxStatus)
     }
