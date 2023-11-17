@@ -51,11 +51,11 @@ var answerBox = [answer1, answer2, answer3, answer4];
 var initialBox = document.createElement("input");
 initialBox.setAttribute("type", "text");
 initialBox.setAttribute("placeholder", "Your initials here!");
-initialBox.setAttribute("id","initialBox");
+initialBox.setAttribute("id", "initialBox");
 var score = 0;
 var submit = document.createElement("button");
-submit.setAttribute("id","submit");
-submit.textContent = "Submit!"
+submit.setAttribute("id", "submit");
+submit.textContent = "Submit!";
 
 //functions and event listeners
 startButton.addEventListener("click", function (event) {
@@ -146,4 +146,21 @@ main.addEventListener("click", function (event) {
 function clearMainP() {
   isCorrect.textContent = "";
   isCorrect.setAttribute("style", "display:none");
+}
+
+submit.addEventListener("click", function (e) {
+  e.preventDefault();
+  var inputInitials = initialBox.value;
+  
+  if (inputInitials.length < 3 || inputInitials.length > 3) {
+    mainTitle.textContent = "Initials must be of length 3!";
+    return;
+  }
+  mainTitle.textContent = "Score has been saved!";
+  saveScore(inputInitials);
+  textSection.setAttribute("style", "display:none");
+});
+
+function saveScore(inputInitials) {
+  localStorage.setItem(inputInitials, score);
 }
