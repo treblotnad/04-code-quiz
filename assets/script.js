@@ -97,7 +97,7 @@ main.addEventListener("click", function (event) {
   if (e.getAttribute("class") == "btn") {
     var clickTime = timeAmt;
     var clickedBoxStatus = e.getAttribute("status");
-    clearTimeout();
+    
     if (clickedBoxStatus == "incorrect") {
       timeAmt = clickTime - 10;
     }
@@ -111,7 +111,7 @@ main.addEventListener("click", function (event) {
 
     isCorrect.textContent = clickedBoxStatus;
     isCorrect.setAttribute("style","display:block");
-    setTimeout(function(){clearMainP()},1000);
+    setTimeout(function(){clearMainP()},750);
   }
 });
 
