@@ -67,13 +67,5 @@ header {
     
   }
   
-  @media (min-width: 1500px) {
-    h1 {
-      font-size: 4rem;
-    }
-   
-    .btn {
-      font-size: 3rem;
-    }
-  }
+  
   
