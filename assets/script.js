@@ -87,6 +87,7 @@ function quizUpdate(correctQuestionNum) {
   mainTitle.textContent = questions[questionNum];
   for (let i = 0; i < answerBox.length; i++) {
     answerBox[i].textContent = answers[questionNum][i];
+    answerBox[i].setAttribute("status","incorrect");
   }
   answerBox[correctQuestionNum].setAttribute("status", "correct");
 }
