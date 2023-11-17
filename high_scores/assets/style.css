@@ -1,71 +1,65 @@
 header {
-    display: flex;
-    justify-content: space-between;
-  }
-  main {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: start;
-    padding-top: 6rem;
-    padding-left: 15%;
-    padding-right: 15%;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  }
+  display: flex;
+  justify-content: space-between;
+}
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  padding-top: 6rem;
+  padding-left: 15%;
+  padding-right: 15%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 
-  footer{
-    display:inline-block;
-    padding-left:15%;
-  }
+footer {
+  display: inline-block;
+  padding-left: 15%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 
-  header a,
-  header h2 {
-    font-size: 1rem;
-    padding: 1rem;
-    margin: 0;
-    border: 0;
-    height: fit-content;
-    width: fit-content;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
+a {
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 0;
+  border: 0;
+  height: fit-content;
+  width: fit-content;
+  text-decoration: none;
+  color: white;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.btn {
+  background-color: purple;
+  color: white;
+  width: fit-content;
+  font-size: 1rem;
+  border-radius: 10px;
+  margin: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: start;
+}
+
+button:hover {
+  background-color: orange;
+}
+
+@media (min-width: 700px) {
   h1 {
+    font-size: 3rem;
+  }
+  .btn {
     font-size: 2rem;
   }
-  
-
-  
-  .btn {
-    background-color: purple;
-    color: white;
-    width: fit-content;
-    font-size: 1rem;
-    border-radius: 10px;
-    margin: 0.5rem;
-    padding-left: 1rem;
-    text-align:start;
+  a {
+    font-size: 2rem;
   }
-  
- 
-  
-  button:hover {
-    background-color: orange;
-  }
- 
-  
-
-  @media (min-width: 700px) {
-    h1 {
-      font-size: 3rem;
-    }
-    .btn {
-      font-size: 2rem;
-    }
-   
-    
-  }
-  
-  
-  
+}

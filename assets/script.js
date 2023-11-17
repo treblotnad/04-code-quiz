@@ -1,8 +1,10 @@
+//var declarations
 var startButton = document.querySelector("#start");
 var mainTitle = document.querySelector("#mainTitle");
 var timerEl = document.querySelector("#timer");
 var mainP = document.querySelector("#mainP");
 var main = document.querySelector("#main");
+var textSection = document.querySelector("#textSection");
 var timeAmt = 75;
 var questionNum = 0;
 var questions = [
@@ -10,7 +12,7 @@ var questions = [
   "The condition in an if/else statement is enclosed within ____.",
   "Arrays in JavaScript can be used to Store ____.",
   "String Values must be enclosed within ____ when being assigned to variable.",
-  "A very useful tool used during development and debugging for printing content to the debugger is:"
+  "A very useful tool used during development and debugging for printing content to the debugger is:",
 ];
 var answers = [
   ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
@@ -22,7 +24,7 @@ var answers = [
     "4. all of the above",
   ],
   ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
-  ["1. JavaScript","2. terminal/bash","3. for loops","4. console.log"],
+  ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log"],
 ];
 var answerKey = [2, 1, 3, 2, 3];
 var answer1 = document.createElement("button");
@@ -42,11 +44,20 @@ answer2.setAttribute("status", "incorrect");
 answer3.setAttribute("status", "incorrect");
 answer4.setAttribute("status", "incorrect");
 var isCorrect = document.createElement("p");
-isCorrect.setAttribute("style","display:none");
+isCorrect.setAttribute("style", "display:none");
 
-var score = 0;
+var isDone = 0;
 var answerBox = [answer1, answer2, answer3, answer4];
+var initialBox = document.createElement("input");
+initialBox.setAttribute("type", "text");
+initialBox.setAttribute("placeholder", "Your initials here!");
+initialBox.setAttribute("id","initialBox");
+var score = 0;
+var submit = document.createElement("button");
+submit.setAttribute("id","submit");
+submit.textContent = "Submit!"
 
+//functions and event listeners
 startButton.addEventListener("click", function (event) {
   event.preventDefault();
   countdown();
@@ -71,6 +82,18 @@ function countdown() {
       answerBox[2].setAttribute("style", "display:none");
       answerBox[3].setAttribute("style", "display:none");
     }
+    if (isDone) {
+      clearInterval(timeInterval);
+      mainTitle.textContent = "All Done!";
+      mainP.textContent = "Your final score is " + score;
+      timerEl.textContent = "Time Remaining: " + score;
+      answerBox[0].setAttribute("style", "display:none");
+      answerBox[1].setAttribute("style", "display:none");
+      answerBox[2].setAttribute("style", "display:none");
+      answerBox[3].setAttribute("style", "display:none");
+      textSection.appendChild(initialBox);
+      textSection.appendChild(submit);
+    }
   }, 1000);
 }
 
@@ -87,7 +110,7 @@ function quizUpdate(correctQuestionNum) {
   mainTitle.textContent = questions[questionNum];
   for (let i = 0; i < answerBox.length; i++) {
     answerBox[i].textContent = answers[questionNum][i];
-    answerBox[i].setAttribute("status","incorrect");
+    answerBox[i].setAttribute("status", "incorrect");
   }
   answerBox[correctQuestionNum].setAttribute("status", "correct");
 }
@@ -95,10 +118,12 @@ function quizUpdate(correctQuestionNum) {
 main.addEventListener("click", function (event) {
   event.preventDefault();
   var e = event.target;
+  if (score > 0) return;
+
   if (e.getAttribute("class") == "btn") {
     var clickTime = timeAmt;
     var clickedBoxStatus = e.getAttribute("status");
-    
+
     if (clickedBoxStatus == "incorrect") {
       timeAmt = clickTime - 10;
     }
@@ -106,17 +131,19 @@ main.addEventListener("click", function (event) {
       questionNum++;
       quizUpdate(answerKey[questionNum]);
     } else {
-      score = timeAmt;
-      console.log(score);
+      isDone = 1;
+      score = clickTime;
     }
 
     isCorrect.textContent = clickedBoxStatus;
-    isCorrect.setAttribute("style","display:block");
-    setTimeout(function(){clearMainP()},750);
+    isCorrect.setAttribute("style", "display:block");
+    setTimeout(function () {
+      clearMainP();
+    }, 750);
   }
 });
 
-function clearMainP(){
-    isCorrect.textContent="";
-    isCorrect.setAttribute("style","display:none");
+function clearMainP() {
+  isCorrect.textContent = "";
+  isCorrect.setAttribute("style", "display:none");
 }

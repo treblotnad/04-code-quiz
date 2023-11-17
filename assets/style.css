@@ -32,6 +32,11 @@ main p {
   font-size: 1rem;
 }
 
+input {
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
 .btn {
   background-color: purple;
   color: white;
@@ -40,10 +45,27 @@ main p {
   border-radius: 10px;
   margin: 0.5rem;
   padding-left: 1rem;
-  text-align:start;
+  text-align: start;
+}
+#textSection{
+  display:flex;
+  width: fit-content;
+}
+input{
+  margin-right: 1rem;
 }
 
 #start {
+  background-color: purple;
+  color: white;
+  width: fit-content;
+  font-size: 1rem;
+  border-radius: 10px;
+  margin: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+#submit{
   background-color: purple;
   color: white;
   width: fit-content;
@@ -60,6 +82,12 @@ button:hover {
 #start:hover {
   background-color: orange;
 }
+#submit:hover{
+  background-color: orange;
+}
+#initialBox:hover{
+  box-shadow: 0 0 10px orange;
+}
 
 a:hover {
   color: gray;
@@ -69,19 +97,13 @@ a:hover {
   h1 {
     font-size: 3rem;
   }
-  main p {
-    font-size: 2rem;
-  }
-  .btn {
-    font-size: 2rem;
-  }
-  #start {
-    font-size: 2rem;
-  }
+  main p,
+  .btn,
+  #start,
   header a,
-  header h2 {
+  header h2,
+  input,
+  #submit {
     font-size: 2rem;
   }
 }
-
-
