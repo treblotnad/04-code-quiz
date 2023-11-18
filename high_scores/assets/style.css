@@ -36,6 +36,18 @@ h1 {
   font-size: 2rem;
 }
 
+ul {
+  list-style-type: none;
+}
+
+li {
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background-color: darkseagreen;
+  width: 24rem;
+}
+
 .btn {
   background-color: purple;
   color: white;
@@ -60,6 +72,9 @@ button:hover {
     font-size: 2rem;
   }
   a {
+    font-size: 2rem;
+  }
+  li {
     font-size: 2rem;
   }
 }

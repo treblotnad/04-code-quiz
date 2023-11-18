@@ -17,11 +17,11 @@ function renderScores() {
   for (i = 0; i < localStorage.length; i++) {
     var scoreLi = document.createElement("li");
     scoreArray[i] = JSON.parse(localStorage.getItem(i));
-    scoreLi.textContent = scoreArray[i].wInitials + " - " +scoreArray[i].wScore;
+    scoreLi.textContent = (i+1) + ". " + scoreArray[i].wInitials + " - " +scoreArray[i].wScore;
     scoreUl.appendChild(scoreLi);
   }
   console.log(localStorage.length)
-  
+
 }
 
 renderScores();
