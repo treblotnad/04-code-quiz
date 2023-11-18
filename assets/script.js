@@ -151,7 +151,7 @@ function clearMainP() {
 submit.addEventListener("click", function (e) {
   e.preventDefault();
   var inputInitials = initialBox.value;
-  
+
   if (inputInitials.length < 3 || inputInitials.length > 3) {
     mainTitle.textContent = "Initials must be of length 3!";
     return;
@@ -162,5 +162,10 @@ submit.addEventListener("click", function (e) {
 });
 
 function saveScore(inputInitials) {
-  localStorage.setItem(inputInitials, score);
+  var winnerScore = {
+    wInitials: inputInitials,
+    wScore: score,
+  };
+  var scoreIndex = localStorage.length;
+  localStorage.setItem(scoreIndex, JSON.stringify(winnerScore));
 }
