@@ -1,7 +1,6 @@
 var clearButton = document.querySelector("#clearBtn");
 
 clearButton.addEventListener("click", function (e) {
-  e.preventDefault();
   localStorage.clear();
   renderScores();
 });
@@ -12,16 +11,17 @@ clearButton.addEventListener("click", function (e) {
 function renderScores() {
   var scoreArray = [];
   var scoreUl = document.querySelector("#scores");
+  scoreUl.innerHTML = "";
   var scoreLi = document.createElement("li");
-  
+
   for (i = 0; i < localStorage.length; i++) {
     var scoreLi = document.createElement("li");
     scoreArray[i] = JSON.parse(localStorage.getItem(i));
-    scoreLi.textContent = (i+1) + ". " + scoreArray[i].wInitials + " - " +scoreArray[i].wScore;
+    scoreLi.textContent =
+      i + 1 + ". " + scoreArray[i].wInitials + " - " + scoreArray[i].wScore;
     scoreUl.appendChild(scoreLi);
   }
-  console.log(localStorage.length)
-
+  console.log(localStorage.length);
 }
 
 renderScores();
