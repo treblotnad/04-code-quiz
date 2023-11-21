@@ -4,7 +4,7 @@
 
 html, css and JS for an html code quiz
 
-##Usage
+## Usage
 link to high score in top left corner, timer in top right corner counts down after quiz is started. score is time remaining after completing 5 questions.  
 Uses local storage to maintain high score list with 3 character initial storage for leaderboard.
 
