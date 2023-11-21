@@ -56,6 +56,7 @@ var score = 0;
 var submit = document.createElement("button");
 submit.setAttribute("id", "submit");
 submit.textContent = "Submit!";
+var timeOut = "";
 
 //functions and event listeners
 startButton.addEventListener("click", function (event) {
@@ -138,9 +139,9 @@ main.addEventListener("click", function (event) {
 
     isCorrect.textContent = clickedBoxStatus;
     isCorrect.setAttribute("style", "display:block");
-    var timeOut = setTimeout(function () {
+    timeOut = setTimeout(function () {
       clearMainP();
-    }, 2750);
+    }, 750);
   }
 });
 
