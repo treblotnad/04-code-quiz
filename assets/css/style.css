@@ -47,11 +47,11 @@ input {
   padding-left: 1rem;
   text-align: start;
 }
-#textSection{
-  display:flex;
+#textSection {
+  display: flex;
   width: fit-content;
 }
-input{
+input {
   margin-right: 1rem;
 }
 
@@ -65,7 +65,7 @@ input{
   padding-left: 1rem;
   padding-right: 1rem;
 }
-#submit{
+#submit {
   background-color: purple;
   color: white;
   width: fit-content;
@@ -82,10 +82,10 @@ button:hover {
 #start:hover {
   background-color: orange;
 }
-#submit:hover{
+#submit:hover {
   background-color: orange;
 }
-#initialBox:hover{
+#initialBox:hover {
   box-shadow: 0 0 10px orange;
 }
 
