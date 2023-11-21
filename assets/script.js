@@ -117,6 +117,7 @@ function quizUpdate(correctQuestionNum) {
 
 main.addEventListener("click", function (event) {
   event.preventDefault();
+  clearTimeout(timeOut);
   var e = event.target;
   if (score > 0) return;
 
@@ -137,9 +138,9 @@ main.addEventListener("click", function (event) {
 
     isCorrect.textContent = clickedBoxStatus;
     isCorrect.setAttribute("style", "display:block");
-    setTimeout(function () {
+    var timeOut = setTimeout(function () {
       clearMainP();
-    }, 750);
+    }, 2750);
   }
 });
 
